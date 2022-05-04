@@ -37,6 +37,7 @@ int computeOptimal(Interval job[], int n) {
 int findSolution(Interval job[], int n) {
     sort(job, job + n, jobsComparison);
     return computeOptimal(job, n);
+    
 }
 
 int main() {
