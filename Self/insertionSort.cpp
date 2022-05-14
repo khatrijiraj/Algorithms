@@ -27,6 +27,21 @@ void insertionSort::sortIncreasingOrder(int array[20], int n) {
 }
 
 void insertionSort::sortDecreasingOrder(int array[20], int n) {
+    int i, j, key, comparison = 0;
+    for (int i = 1; i < n; i++) {
+        key = array[i];
+        j = i - 1;
+        comparison++;
+        while (j >= 0 && array[j] < key) {
+            if (array[j - 1] < array[j]) {
+                comparison++;
+            }
+            array[j + 1] = array[j];
+            j = j - 1;
+        }
+        array[j + 1] = key;
+    }
+    cout << "\nComparison: " << comparison;
 }
 
 void insertionSort::display(int array[20], int n) {
@@ -69,8 +84,10 @@ int main() {
                 cout << endl;
                 cout << "Do you want to try again?(y/Y): ";
                 cin >> tryagain;
+                break;
             case 3:
                 exit(0);
+                break;
             default:
                 cout << "Error Wrong Choice try again";
                 tryagain = 'y';
